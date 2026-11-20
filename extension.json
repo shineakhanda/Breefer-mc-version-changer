@@ -1,0 +1,52 @@
+{
+    "id": "breefer-version-changer",
+    "name": "Breefer Version Changer",
+    "version": "1.1.0",
+    "description": "Switch a Minecraft server between Paper, Purpur, Fabric, Forge, NeoForge, Vanilla, Velocity and more in one click.",
+    "author": "Shine Akhanda",
+    "website": null,
+    "update_url": null,
+    "api_version": "RCYL_v26",
+    "target_version": "canary",
+    "backend": {
+        "routes": {
+            "client": {
+                "file": "backend/routes/client.php",
+                "middleware": []
+            },
+            "admin": {
+                "file": "backend/routes/admin.php",
+                "middleware": []
+            }
+        },
+        "commands": [],
+        "schedules": [],
+        "providers": [],
+        "boot_hooks": ["backend/hooks/boot.php"]
+    },
+    "frontend": {
+        "build_strategy": "source",
+        "entry_points": [],
+        "slots": [],
+        "routes": {
+            "dashboardRouter": [],
+            "serverRouter": [
+                {
+                    "path": "versions",
+                    "label": "Versions",
+                    "module": "frontend/src/VersionPage.tsx",
+                    "export": "default",
+                    "permission": "file.create",
+                    "icon": "icon:RiArrowPath"
+                }
+            ]
+        },
+        "source": {
+            "entry": "frontend/src/VersionPage.tsx",
+            "entries": ["frontend/src/breefer-ui.tsx"]
+        }
+    },
+    "assets": [],
+    "permissions": [],
+    "feature_flags": []
+}
